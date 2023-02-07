@@ -10,18 +10,21 @@ pwd = "password"
 osName = os.getlogin()
 
 # Local get path
-dir = "C:\\Users\OSAL0401\\OneDrive - IT-Enheten SML" 
+dir = f"C:\\Users\\{osName}" 
+
 
 
 ftp = FTP_TLS()
 
 ftp.connect(host=host, port=port)
 
+
 ftp.login(user=usr, passwd=pwd)
+
 
 ftp.prot_p()
 
-print(ftp.pwd())
+
 
 def send_file(ftp, localFilePath, onlineFilePath):
     with open(localFilePath, "rb") as file: 
@@ -60,11 +63,11 @@ for path, subdirs, files in os.walk(dir):
         except:
             pass
         
-        print("Uploadning: " + filePath + " to: " + storeFilePath)
+        # print("Uploadning: " + filePath + " to: " + storeFilePath)
         with open(filePath, "rb") as file: 
             ftp.storbinary("STOR " + storeFilePath, file)
-        print("Done")
+        # print("Done")
 
 
-print('All work completed')
+# All work is complete
 ftp.quit()
