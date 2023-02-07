@@ -4,8 +4,8 @@ import threading, os
 q = Queue()
 
 osName = os.getlogin()
-storePath = "C:\\ElevProgram\\OneDrive\\" + osName + "\\"
-dir = "C:\\Users\\" + osName + "\\OneDrive - IT-Enheten SML\\"
+storePath = f"C:\\{osName}\\"
+dir = f"C:\\Users\\{osName}"
 
 
 
